@@ -14,7 +14,7 @@ class AuthFormRegister extends React.Component {
                 <Label for="Password">Email</Label>
                 <Input type="password" name="password" id="Password" placeholder="Password" />
               </FormGroup>
-              <Button>Submit</Button>
+              <Button color="primary">Submit</Button>
             </Col>
           </Row>
         </Container>
