@@ -1,15 +1,25 @@
 import React, { Component } from 'react';
 import './App.css';
-import TopNav from './components/TopNav';
-import SplashContent from './components/SplashContent';
+
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom'
+import Splash from './components/Splash';
+import Adoptions from './components/Adoptions';
+import Auth from './components/Auth';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-      <TopNav />
-        <SplashContent />
-      </div>
+      <Router>
+        <div>
+          <Route exact path="/" component={Splash} />
+          <Route path="/adoptions" component={Adoptions} />
+          <Route path="/auth" component={Auth} />
+        </div>
+      </Router>
     );
   }
 }

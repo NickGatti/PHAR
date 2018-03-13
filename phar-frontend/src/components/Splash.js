@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
-import BottomContent from './splash/BottomContent';
+import TopNav from './TopNav';
 import Jumbo from './splash/Jumbo';
 import PanoPic from './splash/PanoPic';
+import BottomContent from './splash/BottomContent';
 
-class SplashContent extends Component {
+class Splash extends Component {
 
 render() {
         return (
             <div>
+                <TopNav />
                 <Jumbo />
                 <PanoPic />
                 <BottomContent />
@@ -16,4 +18,4 @@ render() {
     }
 }
 
-export default SplashContent
+export default Splash
