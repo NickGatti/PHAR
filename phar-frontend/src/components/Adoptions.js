@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import TopComponent from './adoption/TopComponent';
 import TopNav from './TopNav';
+import CardWrapper from './adoption/CardWraper';
 
 class Adoptions extends Component {
 
@@ -9,6 +10,7 @@ render() {
             <div>
                 <TopNav />
                 <TopComponent />
+                <CardWrapper />
             </div>
         )
     }

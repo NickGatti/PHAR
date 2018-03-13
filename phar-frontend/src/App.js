@@ -4,7 +4,6 @@ import './App.css';
 import {
   BrowserRouter as Router,
   Route,
-  Link
 } from 'react-router-dom'
 import Splash from './components/Splash';
 import Adoptions from './components/Adoptions';

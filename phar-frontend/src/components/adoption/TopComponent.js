@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Row, Col, Media } from 'reactstrap';
+import { Container, Row, Col } from 'reactstrap';
 import Captain from '../../images/captian.jpg'
 
 class TopComponent extends Component {
@@ -9,7 +9,7 @@ render() {
             <Container style={{ marginTop: 30 }}>
                 <Row>
                     <Col xs="4" sm="4" md="4" lg="4" xl="4">
-                        <img className="img-fluid" src={Captain} />
+                        <img className="img-fluid" src={Captain} alt="Captain" />
                     </Col>
                     <Col xs="8" sm="8" md="8" lg="8" xl="8">
                         <h4>Adoption</h4>

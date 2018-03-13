@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, Media } from 'reactstrap';
+import { Container, Row, Col } from 'reactstrap';
 import DonnyKatie from '../../images/donny_katie.jpg'
 
 class PanoPic extends React.Component {
@@ -8,7 +8,7 @@ class PanoPic extends React.Component {
             <Container>
                 <Row>
                     <Col xs="12" sm="12" md="12" lg="12" xl="12">
-                        <img className="img-fluid img-pano" src={DonnyKatie} />
+                        <img className="img-fluid img-pano" src={DonnyKatie} alt="Donny and Katie" />
                     </Col>
                 </Row>
             </Container>
