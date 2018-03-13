@@ -1,15 +1,15 @@
-const Question = require('../models/question')
+const Questions = require('../models/questions')
 const mongoose = require('mongoose')
 
 module.exports = {
     view: function (req, res) {
-        Question.find((err, questions) => {
+        Questions.find((err, questions) => {
             if (err) return res.status(500).send(err)
             return res.status(200).send(people);
         })
     },
     edit: function (req, res) {
-        Todo.findByIdAndUpdate(
+        Questions.findByIdAndUpdate(
             req.params.question_ID,
             req.body,
             { new: true },
@@ -20,10 +20,10 @@ module.exports = {
         )
     },
     delete: function (req, res) {
-        Todo.findByIdAndRemove(req.params.todoId, (err, todo) => {
+        Questions.findByIdAndRemove(req.params.todoId, (err, todo) => {
             if (err) return res.status(500).send(err);
             const response = {
-                message: "Todo successfully deleted",
+                message: "Question successfully deleted",
                 id: todo._id
             };
             return res.status(200).send(response);
