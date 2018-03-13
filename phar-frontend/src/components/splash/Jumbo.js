@@ -14,7 +14,9 @@ const Jumbo = (props) => {
                     We are always in need of fosters, volunteers, and people to share our posts -- this is a tremendous help in finding homes for the dogs!
                     Donations are also so appreciated as there are many times we help dogs who need more vet care than the usual spay/neuter. Your donations help a dog walk better, or remove a tumor that a previous owner should have removed, etc.</p>
                 <p className="lead">
-                    <Button color="primary">See adoptions</Button>
+                    <Button 
+                        
+                        color="primary">See adoptions</Button>
                 </p>
             </Jumbotron>
         </div>
