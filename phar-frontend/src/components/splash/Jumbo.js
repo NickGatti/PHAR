@@ -3,7 +3,7 @@ import { Jumbotron, Button } from 'reactstrap';
 
 const Jumbo = (props) => {
     return <div>
-        <Jumbotron style={{ background: "#FBFCFC" }}>
+        <Jumbotron style={{ background: "#ECF0F1" }}>
           <h1 className="display-3">Pathways Home Animal Rescue</h1>
           <p className="lead">
             Pathways Home Animal Rescue finds great new homes for shelter,

@@ -6,13 +6,11 @@ import CardWrapper from './adoption/CardWraper';
 class Adoptions extends Component {
 
 render() {
-        return (
-            <div>
-                <TopNav />
-                <TopComponent />
-                <CardWrapper />
-            </div>
-        )
+        return <div>
+            <TopNav />
+            <TopComponent />
+            <CardWrapper />
+          </div>;
     }
 }
 
