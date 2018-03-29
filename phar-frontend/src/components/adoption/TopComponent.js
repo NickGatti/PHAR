@@ -4,7 +4,8 @@ import Captain from '../../images/captian.jpg'
 
 class TopComponent extends Component {
 render() {
-        return <div style={{ background: "#ECF0F1", paddingTop: 30, paddingBottom: 30 }}>
+        return (
+        <div style={{ background: "#ECF0F1", paddingTop: 30, paddingBottom: 30 }}>
             <Container>
               <Row>
                 <Col xs="4" sm="4" md="4" lg="4" xl="4">
@@ -43,7 +44,8 @@ render() {
                 </Col>
               </Row>
             </Container>
-          </div>;
+          </div>
+        );
     }
 }
 

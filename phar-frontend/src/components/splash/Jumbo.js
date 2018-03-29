@@ -2,7 +2,8 @@ import React from 'react';
 import { Jumbotron, Button } from 'reactstrap';
 
 const Jumbo = (props) => {
-    return <div>
+    return (
+    <div>
         <Jumbotron style={{ background: "#ECF0F1" }}>
           <h1 className="display-3">Pathways Home Animal Rescue</h1>
           <p className="lead">
@@ -31,7 +32,7 @@ const Jumbo = (props) => {
             <Button color="primary">See adoptions</Button>
           </p>
         </Jumbotron>
-      </div>;
+      </div>);
 };
 
 export default Jumbo;

@@ -4,7 +4,8 @@ import { Container, Row, Col } from "reactstrap";
 
 class AuthFormLogin extends React.Component {
   render() {
-    return <Form>
+    return (
+      <Form>
         <Container style={{ marginTop: 30 }}>
           <Row>
             <Col xs="12" sm="12" md="12" lg="12" xl="12">
@@ -18,7 +19,7 @@ class AuthFormLogin extends React.Component {
             </Col>
           </Row>
         </Container>
-      </Form>;
+      </Form>);
   }
 }
 

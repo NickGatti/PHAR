@@ -1,8 +1,15 @@
 import React, { Component } from 'react'
 import PetCard from './PetCard';
 import { Container, Row, Col } from 'reactstrap';
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { fetchAdoptions } from "../../redux/actions";
 
 class CardWrapper extends Component {
+
+componentDidMount() {
+    this.props.fetchAdoptions()
+}
 
 render() {
         return (
@@ -41,4 +48,16 @@ render() {
     }
 }
 
-export default CardWrapper
+const mapStateToProps = ({adoptions}) => {
+    return {
+        adoptions
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchAdoptions: bindActionCreators(fetchAdoptions, dispatch)
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CardWrapper)
