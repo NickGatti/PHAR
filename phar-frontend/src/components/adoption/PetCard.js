@@ -11,16 +11,17 @@ import {
   FormGroup,
   Label,
   Input,
-  ListGroup
+  ListGroup,
+  Col
 } from "reactstrap";
 
 import Question from "./Question";
-import Donny from '../../images/donny.jpg'
 
 const PetCard = (props) => {
   return (
+    <Col className="mt-4" xs="4" sm="4" md="4" lg="4" xl="4">
       <Card>
-        <CardImg top width="100%" src={Donny} alt="Card image cap" />
+        <CardImg top width="100%" src={props.pet.media.photos.photo[3]["$t"]} alt="Card image cap" />
         <CardBody>
           <CardTitle>Donny</CardTitle>
           <CardSubtitle>Questions</CardSubtitle>
@@ -37,6 +38,7 @@ const PetCard = (props) => {
           <Button color="primary">Ask!</Button>
         </CardBody>
       </Card>
+     </Col> 
       );
 }
 

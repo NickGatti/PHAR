@@ -7,45 +7,22 @@ import { fetchAdoptions } from "../../redux/actions";
 
 class CardWrapper extends Component {
 
-componentDidMount() {
-    this.props.fetchAdoptions()
-}
-
 render() {
-        return (
-            <Container style={{ marginBottom: 30 }}>
-                <Row>
-                    <Col className="mt-4" xs="4" sm="4" md="4" lg="4" xl="4">
-                        <PetCard />
-                    </Col>
-                    <Col className="mt-4" xs="4" sm="4" md="4" lg="4" xl="4">
-                        <PetCard />
-                    </Col>
-                    <Col className="mt-4" xs="4" sm="4" md="4" lg="4" xl="4">
-                        <PetCard />
-                    </Col>
-                    <Col className="mt-4" xs="4" sm="4" md="4" lg="4" xl="4">
-                        <PetCard />
-                    </Col>
-                    <Col className="mt-4" xs="4" sm="4" md="4" lg="4" xl="4">
-                        <PetCard />
-                    </Col>
-                    <Col className="mt-4" xs="4" sm="4" md="4" lg="4" xl="4">
-                        <PetCard />
-                    </Col>
-                    <Col className="mt-4" xs="4" sm="4" md="4" lg="4" xl="4">
-                        <PetCard />
-                    </Col>
-                    <Col className="mt-4" xs="4" sm="4" md="4" lg="4" xl="4">
-                        <PetCard />
-                    </Col>
-                    <Col className="mt-4" xs="4" sm="4" md="4" lg="4" xl="4">
-                        <PetCard />
-                    </Col>
-                </Row>
-            </Container>
-        )
-    }
+        console.log('PROPS',this.props);
+            if (this.props.adoptions === undefined) {
+                return <div>Loading...</div>;
+            }
+            let adoptionList = this.props.adoptions.map(
+                (pet, index) => {
+                return <PetCard key={index} pet={pet} />;
+                }
+            );  
+            return (
+                <Container style={{ marginBottom: 30 }}>
+                    <Row>{adoptionList}</Row>
+                </Container>
+            );
+        }    
 }
 
 const mapStateToProps = ({adoptions}) => {

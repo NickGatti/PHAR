@@ -13,6 +13,8 @@ let initialState = {
 }
 
 export default (state = initialState, { type, payload }) => {
+    let newState
+    let newAdoptions
     switch (type) {
         case LOGIN_SUCCESSFUL:
             return {      
@@ -25,7 +27,10 @@ export default (state = initialState, { type, payload }) => {
                 isLoggedIn: false
             }
         case FETCH_ADOPTIONS_SUCCESS:
-            return  state.adoptions.concat(payload)
+            newAdoptions = state.adoptions.concat(payload)
+            newState = Object.assign({}, state)
+            newState.adoptions = newAdoptions
+            return  {...newState}
         case FETCH_ADOPTIONS_FAILURE:
             return state
         default:
