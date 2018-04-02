@@ -8,7 +8,6 @@ import { fetchAdoptions } from "../../redux/actions";
 class CardWrapper extends Component {
 
 render() {
-        console.log('PROPS',this.props);
             if (this.props.adoptions === undefined) {
                 return <div>Loading...</div>;
             }
