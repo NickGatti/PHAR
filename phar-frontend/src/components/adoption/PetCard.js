@@ -35,22 +35,33 @@ class PetCard extends Component {
   toggle = e => {
     !e ? null : e.preventDefault();
     this.setState({ modal: !this.state.modal });
-  }
+  };
 
   render() {
-    let options = this.props.pet.options.option.map( (option, key) => {
-      return (
-        <td key={key}>{option["$t"]}</td>
-      )
-    } )
+    let options = this.props.pet.options.option.map((option, key) => {
+      return <td key={key}>{option["$t"]}</td>;
+    });
+    let breeds = !this.props.pet.breeds.breed.length ? <td>{this.props.pet.breeds.breed["$t"]}</td> : this.props.pet.breeds.breed.map((breed, key) => {
+      return <td key={key}>{breed["$t"]}</td>;
+    });
 
-    return <Col className="mt-4" xs="4" sm="4" md="4" lg="4" xl="4">
+    return (
+      <Col className="mt-4" xs="4" sm="4" md="4" lg="4" xl="4">
         <Card>
-          <CardImg top width="100%" src={this.props.pet.media.photos.photo[3]["$t"]} alt="Card image cap" />
+          <CardImg
+            top
+            width="100%"
+            src={this.props.pet.media.photos.photo[3]["$t"]}
+            alt="Card image cap"
+          />
           <CardBody>
             <CardTitle>{this.props.pet.name["$t"]}</CardTitle>
             <div>
-              <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+              <Modal
+                isOpen={this.state.modal}
+                toggle={this.toggle}
+                className={this.props.className}
+              >
                 <ModalHeader toggle={this.toggle}>
                   {this.props.pet.name["$t"]}
                 </ModalHeader>
@@ -62,22 +73,18 @@ class PetCard extends Component {
                       {options}
                     </tr>
                     <tr>
-                      <th scope="row">2</th>
-                      <td>Jacob</td>
-                      <td>Thornton</td>
-                      <td>@fat</td>
+                      <th scope="row">Age</th>
+                      <td>{this.props.pet.age["$t"]}</td>
                     </tr>
                     <tr>
-                      <th scope="row">3</th>
-                      <td>Larry</td>
-                      <td>the Bird</td>
-                      <td>@twitter</td>
+                      <th scope="row">Breeds</th>
+                      {breeds}
                     </tr>
                   </tbody>
                 </Table>
                 <ModalFooter>
                   <Button color="primary" onClick={this.toggle}>
-                    Do Something
+                    Got it!
                   </Button>
                 </ModalFooter>
               </Modal>
@@ -89,7 +96,8 @@ class PetCard extends Component {
             </a>
           </CardBody>
         </Card>
-      </Col>;
+      </Col>
+    );
   }
 }
 
