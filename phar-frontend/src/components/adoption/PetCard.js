@@ -31,11 +31,9 @@ class PetCard extends Component {
     this.toggle = this.toggle.bind(this);
   }
 
-  toggle(e) {
-    e.preventDefault()
-    this.setState({
-      modal: !this.state.modal
-    });
+  toggle = e => {
+    !e ? null : e.preventDefault();
+    this.setState({ modal: !this.state.modal });
   }
 
   render() {
@@ -57,7 +55,7 @@ class PetCard extends Component {
             </div>
             <CardSubtitle>Description</CardSubtitle>
             {this.props.pet.description["$t"].slice(0, 60)}...&nbsp;
-             <a href="#" onClick={this.toggle}>
+             <a href="#" onClick={ e => this.toggle(e) }>
               More
             </a>
           </CardBody>
