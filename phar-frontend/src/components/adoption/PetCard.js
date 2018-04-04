@@ -77,6 +77,10 @@ class PetCard extends Component {
                       <td>{this.props.pet.age["$t"]}</td>
                     </tr>
                     <tr>
+                      <th scope="row">Size</th>
+                      <td>{this.props.pet.size["$t"]}</td>
+                    </tr>
+                    <tr>
                       <th scope="row">Breeds</th>
                       {breeds}
                     </tr>
