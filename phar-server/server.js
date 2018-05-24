@@ -5,7 +5,9 @@ const port = process.env.PORT || 8000;
 const cors = require('cors');
 const logger = require('morgan');
 const mongoose = require('mongoose')
-const mongoDB = `mongodb://${process.env.MONGO_MLAB_USER}:${process.env.MONGO_MLAB_PW}@ds213199.mlab.com:13199/phar`
+const credentials = require('./mongodb_CRED.json')
+
+const mongoDB = `mongodb://${credentials.env.PW}:${credentials.env.USER}@ds229690.mlab.com:29690/phar`
 
 const app = express();
 
