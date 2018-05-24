@@ -23,7 +23,7 @@ Lockfile:
   No lockfile
 
 Trace: 
-  Error: Couldn't find a package.json file in "/Users/nick/Documents/workspace/Personal-Projects/phar"
+  Error: Couldn't find a package.json file in "/Users/nick/Documents/workspace/Personal-Projects/PHAR"
       at new MessageError (/Users/nick/.nvm/versions/node/v8.7.0/lib/node_modules/yarn/lib/cli.js:186:110)
       at /Users/nick/.nvm/versions/node/v8.7.0/lib/node_modules/yarn/lib/cli.js:40048:15
       at Generator.next (<anonymous>)

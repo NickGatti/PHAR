@@ -5,3 +5,5 @@ node_modules/
 .api
 
 nodemon.json
+PetFinder_Cred.json
+mongodb_CRED.json
