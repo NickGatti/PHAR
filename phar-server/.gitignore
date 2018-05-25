@@ -2,5 +2,5 @@ node_modules/
 .DS_Store
 
 nodemon.json
-
-.api
+yarn-error.log
+npm-debug.log

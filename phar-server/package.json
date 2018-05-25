@@ -1,10 +1,24 @@
 {
-  "name": "phar",
-  "version": "0.0.0",
-  "private": true,
+  "name": "PHAR",
+  "version": "1.0.0",
+  "description": "The Pathways Home Animal Rescue Server",
+  "private": false,
+  "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
+  "keywords": [
+    "heroku",
+    "pathways",
+    "home",
+    "animal",
+    "rescue"
+  ],
+  "engines": {
+    "node": "8.7.0"
+  },
+  "author": "Nick Gatti",
+  "license": "MIT",
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.18.2",
