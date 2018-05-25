@@ -91,7 +91,7 @@ class PetCard extends Component {
                   </tbody>
                   <Questions />
                   <Col xs="12" sm="12" md="12" lg="12" xl="12">
-                    <Form action='/questions' method='POST'>
+                    <Form action='http://localhost:8000/questions' method='POST'>
                       <FormGroup>
                         <Label for="submitQuestion">Question</Label>
                         <Input type="question" name="question" id="submitQuestion" placeholder="Ask a Question" />

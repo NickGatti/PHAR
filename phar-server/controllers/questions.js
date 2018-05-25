@@ -31,10 +31,15 @@ module.exports = {
     },
     create: function (req, res) {
         let newQuestion = req.body.question
+        let newID = req.body.petID
 
-        newQuestion.save(err => {
-            if (err) return res.status(500).send(err)
-            return res.status(200).send(newQuestion)
-        })
+        console.log('New Question', newQuestion)
+        console.log('New petID', newID)
+
+        // newQuestion.save(err => {
+        //     if (err) return res.status(500).send(err)
+        //     return res.status(200).send(newQuestion)
+        // })
+        res.sendStatus(200)
     }
 };
