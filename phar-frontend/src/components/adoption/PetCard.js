@@ -85,6 +85,7 @@ class PetCard extends Component {
                       {breeds}
                     </tr>
                   </tbody>
+                  <Question/>
                 </Table>
                 <ModalFooter>
                   <Button color="primary" onClick={this.toggle}>
