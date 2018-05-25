@@ -7,20 +7,20 @@ import {
   CardTitle,
   CardSubtitle,
   Button,
-  Form,
-  FormGroup,
-  Label,
-  Input,
-  ListGroup,
   Col,
   Modal,
   ModalHeader,
   ModalBody,
   ModalFooter,
-  Table
+  Table,
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  Row
 } from "reactstrap";
 
-import Question from "./Question";
+import Questions from "./Questions";
 
 class PetCard extends Component {
   constructor(props) {
@@ -84,8 +84,25 @@ class PetCard extends Component {
                       <th scope="row">Breeds</th>
                       {breeds}
                     </tr>
+                    <tr>
+                      <th scope="row">ID</th>
+                      <td>{this.props.pet.id["$t"]}</td>
+                    </tr>
                   </tbody>
-                  <Question/>
+                  <Questions />
+                  <Col xs="12" sm="12" md="12" lg="12" xl="12">
+                    <Form action='/questions' method='POST'>
+                      <FormGroup>
+                        <Label for="submitQuestion">Question</Label>
+                        <Input type="question" name="question" id="submitQuestion" placeholder="Ask a Question" />
+                        <Input style={{ display: "none" }} type="petID" name="petID" id="petID" value={this.props.pet.id["$t"]} />
+                      </FormGroup>
+                      <Button style={{ padding: "3px", paddingLeft: "6px", paddingRight: "6px" }} color="primary">
+                        Ask
+                        </Button>
+                    </Form>
+                  </Col>
+                  
                 </Table>
                 <ModalFooter>
                   <Button color="primary" onClick={this.toggle}>
