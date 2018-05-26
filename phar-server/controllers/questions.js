@@ -30,16 +30,14 @@ module.exports = {
         })
     },
     create: function (req, res) {
-        let newQuestion = req.body.question
-        let newID = req.body.petID
-
-        console.log('New Question', newQuestion)
-        console.log('New petID', newID)
-
-        // newQuestion.save(err => {
-        //     if (err) return res.status(500).send(err)
-        //     return res.status(200).send(newQuestion)
-        // })
-        res.sendStatus(200)
+        let newQuestion = new Questions({ _id: mongoose.Types.ObjectId() , data: req.body.question, petID: req.body.petID })
+        newQuestion.save(function (err) {
+            if (err) {
+                console.log(err)
+                res.sendStatus(500)
+            } else {
+                res.redirect("http://localhost:3000/adoptions")
+            }
+        });
     }
 };
