@@ -24,13 +24,13 @@ export const userLogin = (creds) => {
     }
 }
 
-export const fetchQuestions = (questions) => {
+export const fetchQuestions = () => {
     return async dispatch => {
         try {
-            let questions = await axios.get('http://localhost:8000/questions')
+            let res = await axios.get('http://localhost:8000/questions')
             dispatch({
                 type: FETCH_QUESTIONS_SUCCESS,
-                payload: questions
+                payload: res
             })
         } catch (err) {
             dispatch({

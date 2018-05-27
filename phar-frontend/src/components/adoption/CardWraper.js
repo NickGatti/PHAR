@@ -24,10 +24,12 @@ render() {
         }    
 }
 
-const mapStateToProps = ({adoptions, questions}) => {
+const mapStateToProps = (props) => {
+    console.log("MAP STATE TO PROPS", props)
+    let adoptions = props.adoptions
+    let questions = props.questions
     return {
-        adoptions,
-        questions
+        adoptions
     }
 }
 

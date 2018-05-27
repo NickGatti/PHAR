@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 
 module.exports = {
     view: function (req, res) {
+        console.log('GOT HERE')
         Questions.find((err, questions) => {
             if (err) return res.status(500).send(err)
             return res.status(200).send(people);

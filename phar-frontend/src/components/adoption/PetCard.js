@@ -17,10 +17,9 @@ import {
   FormGroup,
   Label,
   Input,
-  Row
+  Row,
+  Container
 } from "reactstrap";
-
-import Questions from "./Questions";
 
 class PetCard extends Component {
   constructor(props) {
@@ -44,6 +43,22 @@ class PetCard extends Component {
     let breeds = !this.props.pet.breeds.breed.length ? <td>{this.props.pet.breeds.breed["$t"]}</td> : this.props.pet.breeds.breed.map((breed, key) => {
       return <td key={key}>{breed["$t"]}</td>;
     });
+    /*
+    let questionList = this.props.questions.map( ( question, index ) => {
+      if (this.props.pet.id["$t"] == this.props.question._id) {
+        return (
+          <div>
+            <Container>
+                <tr>
+                  <th>Question {index}</th>
+                  <td>{question}</td>
+                </tr>
+            </Container>
+          </div>
+        )
+      }
+    } )
+    */
 
     return (
       <Col className="mt-4" xs="4" sm="4" md="4" lg="4" xl="4">
@@ -89,7 +104,12 @@ class PetCard extends Component {
                       <td>{this.props.pet.id["$t"]}</td>
                     </tr>
                   </tbody>
-                  <Questions />
+                  <tbody>
+                    <thead>
+                      <h4>Questions</h4>
+                    </thead>
+                    {/* {questionList} */}
+                  </tbody>
                   <Col xs="12" sm="12" md="12" lg="12" xl="12">
                     <Form action='http://localhost:8000/questions' method='POST'>
                       <FormGroup>

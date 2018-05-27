@@ -11,13 +11,15 @@ let initialState = {
     user: {},
     isLoggedIn: false,
     error: null,
-    adoptions: []
+    adoptions: [],
+    questions: []
 }
 
 export default (state = initialState, { type, payload }) => {
     let newState
     let newAdoptions
     let newQuestions
+    let newErr
     switch (type) {
         case LOGIN_SUCCESSFUL:
             return {      
@@ -35,14 +37,21 @@ export default (state = initialState, { type, payload }) => {
             newState.adoptions = newAdoptions
             return  {...newState}
         case FETCH_ADOPTIONS_FAILURE:
-            return state
+            newErr = state.adoptions.concat(payload)
+            newState = Object.assign({}, state)
+            newState.adoptions = newAdoptions
+            return { ...newState }
         case FETCH_QUESTIONS_SUCCESS:
             newQuestions = state.questions.concat(payload)
             newState = Object.assign({}, state)
             newState.questions = newQuestions
             return {...newState}
         case FETCH_QUESTIONS_FAILURE:
-        return state
+            newErr = state.questions.concat(payload)
+            newState = Object.assign({}, state)
+            newState.questions = newQuestions
+            return { ...newState }
+        return 
         default:
             return state
     }
