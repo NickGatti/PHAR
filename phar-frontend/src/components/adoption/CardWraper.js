@@ -3,7 +3,7 @@ import PetCard from './PetCard';
 import { Container, Row, Col } from 'reactstrap';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { fetchAdoptions } from "../../redux/actions";
+import { fetchAdoptions, fetchQuestions } from "../../redux/actions";
 
 class CardWrapper extends Component {
 
@@ -13,7 +13,7 @@ render() {
             }
             let adoptionList = this.props.adoptions.map(
                 (pet, index) => {
-                return <PetCard key={index} pet={pet} />;
+                    return <PetCard key={index} pet={pet} questions={this.props.questions} />;
                 }
             );  
             return (
@@ -24,15 +24,17 @@ render() {
         }    
 }
 
-const mapStateToProps = ({adoptions}) => {
+const mapStateToProps = ({adoptions, questions}) => {
     return {
-        adoptions
+        adoptions,
+        questions
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchAdoptions: bindActionCreators(fetchAdoptions, dispatch)
+        fetchAdoptions: bindActionCreators(fetchAdoptions, dispatch),
+        fetchQuestions: bindActionCreators(fetchQuestions, dispatch)
     }
 }
 
