@@ -4,6 +4,8 @@ export const LOGIN_SUCCESSFUL = 'LOGIN_SUCCESSFUL'
 export const LOGIN_FAILED = 'LOGIN_FAILED'
 export const FETCH_ADOPTIONS_SUCCESS = 'FETCH_ADOPTIONS_SUCCESS'
 export const FETCH_ADOPTIONS_FAILURE = 'FETCH_ADOPTIONS_FAILURE'
+export const FETCH_QUESTIONS_SUCCESS = "FETCH_QUESTIONS_SUCCESS"
+export const FETCH_QUESTIONS_FAILURE = "FETCH_QUESTIONS_FAILURE"
 
 export const userLogin = (creds) => {
     return async dispatch => {
@@ -16,6 +18,23 @@ export const userLogin = (creds) => {
         } catch (err) {
             dispatch({
                 type: LOGIN_FAILED,
+                payload: err
+            })
+        }
+    }
+}
+
+export const fetchQuestions = (questions) => {
+    return async dispatch => {
+        try {
+            let questions = await axios.get('http://localhost:8000/questions')
+            dispatch({
+                type: FETCH_QUESTIONS_SUCCESS,
+                payload: questions
+            })
+        } catch (err) {
+            dispatch({
+                type: FETCH_QUESTIONS_FAILURE,
                 payload: err
             })
         }
