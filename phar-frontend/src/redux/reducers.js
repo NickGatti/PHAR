@@ -2,7 +2,9 @@ import {
     LOGIN_SUCCESSFUL, 
     LOGIN_FAILED, 
     FETCH_ADOPTIONS_SUCCESS,
-    FETCH_ADOPTIONS_FAILURE
+    FETCH_ADOPTIONS_FAILURE,
+    FETCH_QUESTIONS_SUCCESS,
+    FETCH_QUESTIONS_FAILURE
  } from './actions'
 
 let initialState = {
@@ -15,6 +17,7 @@ let initialState = {
 export default (state = initialState, { type, payload }) => {
     let newState
     let newAdoptions
+    let newQuestions
     switch (type) {
         case LOGIN_SUCCESSFUL:
             return {      
@@ -33,6 +36,13 @@ export default (state = initialState, { type, payload }) => {
             return  {...newState}
         case FETCH_ADOPTIONS_FAILURE:
             return state
+        case FETCH_QUESTIONS_SUCCESS:
+            newQuestions = state.questions.concat(payload)
+            newState = Object.assign({}, state)
+            newState.questions = newQuestions
+            return {...newState}
+        case FETCH_QUESTIONS_FAILURE:
+        return state
         default:
             return state
     }
