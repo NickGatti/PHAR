@@ -3,10 +3,9 @@ const mongoose = require('mongoose')
 
 module.exports = {
     view: function (req, res) {
-        console.log('GOT HERE')
-        Questions.find((err, questions) => {
+        Questions.find((err, question) => {
             if (err) return res.status(500).send(err)
-            return res.status(200).send(people);
+            return res.status(200).send(question);
         })
     },
     edit: function (req, res) {
@@ -31,7 +30,7 @@ module.exports = {
         })
     },
     create: function (req, res) {
-        let newQuestion = new Questions({ _id: mongoose.Types.ObjectId() , data: req.body.question, petID: req.body.petID })
+        let newQuestion = new Questions({ _id: mongoose.Types.ObjectId() , data: req.body.question, pet_id: req.body.petID })
         newQuestion.save(function (err) {
             if (err) {
                 console.log(err)
