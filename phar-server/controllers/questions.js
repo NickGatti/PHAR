@@ -3,6 +3,9 @@ const mongoose = require('mongoose')
 
 module.exports = {
     view: function (req, res) {
+        if (!req.session.user._id) {
+            
+        }
         Questions.find((err, question) => {
             if (err) return res.status(500).send(err)
             return res.status(200).send(question);
@@ -30,7 +33,12 @@ module.exports = {
         })
     },
     create: function (req, res) {
-        let newQuestion = new Questions({ _id: mongoose.Types.ObjectId() , data: req.body.question, pet_id: req.body.petID })
+        let newQuestion = new Questions({ 
+            _id: new mongoose.Types.ObjectId(),
+            data: req.body.question,
+            pet_id: req.body.petID,
+            user_id: req.body.user._id
+        })
         newQuestion.save(function (err) {
             if (err) {
                 console.log(err)
