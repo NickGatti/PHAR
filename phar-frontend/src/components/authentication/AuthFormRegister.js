@@ -9,13 +9,15 @@ class AuthFormRegister extends React.Component {
         <Container style={{ marginTop: 30 }}>
           <Row>
             <Col xs="12" sm="12" md="12" lg="12" xl="12">
-              <FormGroup>
-                <Label for="Name">Email</Label>
-                <Input type="text" name="name" id="Name" placeholder="Name" />
-                <Label for="Password">Email</Label>
-                <Input type="password" name="password" id="Password" placeholder="Password" />
-              </FormGroup>
-              <Button color="primary">Submit</Button>
+              <Form action='http://localhost:8000/register' method='POST'>
+                <FormGroup>
+                  <Label for="NameRegister">Email</Label>
+                  <Input type="text" name="name" id="NameRegister" placeholder="Name" />
+                  <Label for="PasswordRegister">Email</Label>
+                  <Input type="password" name="password" id="PasswordRegister" placeholder="Password" />
+                </FormGroup>
+                <Button color="primary">Submit</Button>
+              </Form>
             </Col>
           </Row>
         </Container>
