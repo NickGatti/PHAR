@@ -24,14 +24,23 @@ module.exports = {
         User.findOne({ name: name, password: password }, function (err, user) {
             if (err) {
                 console.log('Auth error 001', err)
-                return res.status(500).send()
+                res.session.name = ""
+                req.session.save(() => {
+                    res.redirect("http://localhost:3000/auth")
+                })
             }
             if (!user) {
                 console.log('Auth error 002', user)
-                return res.status(404).send()
+                res.session.name = ""
+                req.session.save(() => {
+                    res.redirect("http://localhost:3000/auth")
+                })
             }
             console.log('Auth success', user)
-            return res.status(200).send()
+            req.session.user.name = name
+            req.session.save(() => {
+                res.redirect("http://localhost:3000/adoptions")
+            })
         })
     }
 };
