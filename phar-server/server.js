@@ -6,6 +6,8 @@ const cors = require('cors');
 const logger = require('morgan');
 const mongoose = require('mongoose')
 const credentials = require('./mongodb_CRED.json')
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 
 const mongoDB = `mongodb://${credentials.env.PW}:${credentials.env.USER}@ds229690.mlab.com:29690/phar`
 
@@ -23,6 +25,12 @@ app.use(logger('dev'));
 app.use(cors());
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(session({
+  secret: 'foo',
+  saveUninitialized: false, // don't create session until something stored,
+  resave: false, //don't save session if unmodified,
+  store: new MongoStore( { mongooseConnection: mongoose.connection } )
+}));
 
 const routes_setter = require("./config/routes.js");
 routes_setter(app);
