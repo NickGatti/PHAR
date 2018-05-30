@@ -37,6 +37,7 @@ module.exports = {
                 })
             }
             console.log('Auth success', user)
+            req.session.user = {}
             req.session.user.name = name
             req.session.save(() => {
                 res.redirect("http://localhost:3000/adoptions")
