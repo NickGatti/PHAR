@@ -4,7 +4,8 @@ const mongoose = require('mongoose')
 module.exports = {
     view: function (req, res) {
         if (!req.session.user._id) {
-            
+            //USE A JSON API TO LINK THE ID OF THE USER TO THE RIGHT API
+            //LEARN HOW TO USE JWT
         }
         Questions.find((err, question) => {
             if (err) return res.status(500).send(err)
