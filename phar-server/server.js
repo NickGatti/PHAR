@@ -7,7 +7,7 @@ const logger = require('morgan');
 const mongoose = require('mongoose')
 const credentials = require('./mongodb_CRED.json')
 const session = require('express-session');
-const MongoStore = require('connect-mongo')(session);
+const MongoStore = require('connect-mongo')(session)
 
 const mongoDB = `mongodb://${credentials.env.PW}:${credentials.env.USER}@ds229690.mlab.com:29690/phar`
 

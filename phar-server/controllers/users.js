@@ -24,20 +24,23 @@ module.exports = {
         User.findOne({ name: name, password: password }, function (err, user) {
             if (err) {
                 console.log('Auth error 001', err)
-                res.session.user = {}
+                req.session.user = {}
+                req.session.user.error = true
                 req.session.save(() => {
                     res.redirect("http://localhost:3000/auth")
                 })
             }
             if (!user) {
                 console.log('Auth error 002', user)
-                res.session.user = {}
+                req.session.user = {}
+                req.session.user.error = true
                 req.session.save(() => {
                     res.redirect("http://localhost:3000/auth")
                 })
             }
             console.log('Auth success', user)
             req.session.user = {}
+            req.session.user.error = false
             req.session.user.name = name
             req.session.user._id = user._id
             req.session.save(() => {

@@ -3,14 +3,22 @@ const mongoose = require('mongoose')
 
 module.exports = {
     view: function (req, res) {
-        if (!req.session.user._id) {
-            //USE A JSON API TO LINK THE ID OF THE USER TO THE RIGHT API
-            //LEARN HOW TO USE JWT
+        if (!req.session.user) {
+            console.log('No User In Session... so no session?')
+        } else {
+            console.log('Session and user found checking for error...')
+            if (req.session.user.error === true) {
+                console.log('Session error was true, false log-in')
+            } else {
+                console.log('Session error was false, good log-in')
+                /*
+                Questions.find((err, question) => {
+                    if (err) return res.status(500).send(err)
+                    return res.status(200).send(question);
+                })
+                */
+            }
         }
-        Questions.find((err, question) => {
-            if (err) return res.status(500).send(err)
-            return res.status(200).send(question);
-        })
     },
     edit: function (req, res) {
         Questions.findByIdAndUpdate(

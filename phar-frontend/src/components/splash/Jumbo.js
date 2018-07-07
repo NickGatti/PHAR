@@ -29,7 +29,7 @@ const Jumbo = (props) => {
             should have removed, etc.
           </p>
           <p className="lead">
-            <Button color="primary">See adoptions</Button>
+            <Button color="primary" href="/adoptions">See adoptions</Button>
           </p>
         </Jumbotron>
       </div>);
