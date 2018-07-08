@@ -1,6 +1,5 @@
 const User = require('../models/user')
 const mongoose = require('mongoose')
-const token = require('../token/token')
 
 module.exports = {
     register: function (req, res) {
@@ -41,8 +40,7 @@ module.exports = {
             }
             console.log('Auth success', user)
 
-            token(user)
-            res.redirect("http://localhost:3000/adoptions")
+            // WHAT NOW?
         })
     }
 };

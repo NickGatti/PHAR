@@ -1,6 +1,5 @@
 const Questions = require('../models/questions')
 const mongoose = require('mongoose')
-const jwt = require('jsonwebtoken')
 
 module.exports = {
     view: function (req, res) {
