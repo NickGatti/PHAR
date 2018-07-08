@@ -11,10 +11,10 @@ module.exports = function(app) {
   app.post("/register", users.register)
   app.post("/auth", users.auth)
 
-  app.get("/adoptions", jwt({ secret: 'notsosecret' }), adoptions.view)
+  app.get("/adoptions", adoptions.view)
 
   app.get("/questions", questions.view)
-  app.post("/questions", questions.create)
-  app.put("/questions", questions.edit)
-  app.delete("/questions", questions.delete)
+  app.post("/questions", jwt({ secret: 'notsosecret' }), questions.create)
+  app.put("/questions", jwt({ secret: 'notsosecret' }), questions.edit)
+  app.delete("/questions", jwt({ secret: 'notsosecret' }), questions.delete)
 };
