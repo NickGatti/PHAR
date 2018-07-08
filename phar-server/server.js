@@ -23,8 +23,10 @@ app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(cors());
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use(bodyParser.json({ extended : true }))
+app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use(session({
   secret: 'foo',
   saveUninitialized: false, // don't create session until something stored,

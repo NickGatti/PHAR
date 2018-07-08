@@ -43,9 +43,6 @@ module.exports = {
             req.session.user.error = false
             req.session.user.name = name
             req.session.user._id = user._id
-            req.session.save(() => {
-                res.redirect("http://localhost:3000/adoptions")
-            })
         })
     }
 };

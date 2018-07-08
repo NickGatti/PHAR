@@ -1,5 +1,6 @@
 const Questions = require('../models/questions')
 const mongoose = require('mongoose')
+const jwt = require('jsonwebtoken')
 
 module.exports = {
     view: function (req, res) {
@@ -11,7 +12,7 @@ module.exports = {
                 console.log('Session error was true, false log-in')
             } else {
                 console.log('Session error was false, good log-in')
-                /*
+                /*       
                 Questions.find((err, question) => {
                     if (err) return res.status(500).send(err)
                     return res.status(200).send(question);
