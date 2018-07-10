@@ -45,7 +45,7 @@ app.use(session({
 }));
 //
 
-app.use('/', express.static('/Users/nick/Documents/workspace/Personal-Projects/PHAR/phar-frontend/build') )
+app.use('/', express.static(path.join(__dirname, '/../phar-frontend/build/')) )
 
 app.use(logger('dev'));
 app.use(cors());
