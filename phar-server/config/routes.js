@@ -5,8 +5,6 @@ const adoptions = require("../controllers/adoptions.js");
 const questions = require("../controllers/questions.js");
 
 module.exports = function(app) {
-  app.get("/", index.view);
-
   app.post("/register", users.register)
   app.post("/auth", users.auth)
 

@@ -40,6 +40,10 @@ module.exports = {
             }
             console.log('Auth success', user)
 
+            req.session.user = user;
+            req.session.save(() => {
+                res.redirect('http://localhost:3000/adoptions')
+            })
             // WHAT NOW?
         })
     }
