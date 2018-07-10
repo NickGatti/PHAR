@@ -1,5 +1,6 @@
 const User = require('../models/user')
 const mongoose = require('mongoose')
+const jwt = require('jsonwebtoken')
 
 module.exports = {
     register: function (req, res) {
@@ -24,27 +25,31 @@ module.exports = {
         User.findOne({ name: name, password: password }, function (err, user) {
             if (err) {
                 console.log('Auth error 001', err)
-                req.session.user = {}
-                req.session.user.error = true
-                req.session.save(() => {
-                    res.redirect("http://localhost:3000/auth")
-                })
             }
             if (!user) {
                 console.log('Auth error 002', user)
-                req.session.user = {}
-                req.session.user.error = true
-                req.session.save(() => {
-                    res.redirect("http://localhost:3000/auth")
-                })
             }
             console.log('Auth success', user)
 
-            req.session.user = user;
-            req.session.save(() => {
-                res.redirect('http://localhost:3000/adoptions')
+            jwt.sign({ user }, 'doobiedoo', { expiresIn: '2d' }, (err, token) => {
+                // Remove password from user object
+                let { password, ...newUser } = user
+                console.log('user', newUser)
+                res.json({ token, user: newUser, authed: true })
             })
             // WHAT NOW?
+        })
+    },
+    verify: function (req, res) {
+        jwt.verify(req.token, 'doobiedoo', (err, authData) => {
+            if (err) {
+                res.sendStatus(403)
+            } else {
+                res.json({
+                    message: 'secret stuff',
+                    authData
+                })
+            }
         })
     }
 };
